@@ -6,10 +6,12 @@ public class Player {
     Cup cup;
     String name;
     int score;
+    int winStreak;
 
     public Player(String name, Cup cup) {
         this.name = name;
         this.score = 0;
+        this.winStreak = 0;
     }
 
     public void getCup(int diceAmount) {
@@ -23,6 +25,7 @@ public class Player {
         player.cup.rollAll();
         player.score = 0;
         while (!didLose) {
+            int winStreak = 0;
             System.out.println();
             int total = player.cup.total();
             int newTotal;
@@ -40,6 +43,7 @@ public class Player {
                 } else {
                     System.out.println("\nYou won");
                     player.score += 1;
+                    winStreak++;
                 }
             } else { //guessed lower
                 if (isLarger) {
@@ -48,10 +52,15 @@ public class Player {
                 } else {
                     System.out.println("\nyou won");
                     player.score += 1;
+                    winStreak++;
                 }
 
             }
             System.out.println("Your score is " + player.score);
+            if (winStreak > player.winStreak) {
+                player.winStreak = winStreak;
+            }
+            System.out.println("Your win streak is " + player.winStreak);
         }
         System.out.println("Want to play again? enter y/n");
         String playAgain = scan.next();
