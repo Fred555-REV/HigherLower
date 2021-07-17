@@ -25,7 +25,6 @@ public class Player {
         player.cup.rollAll();
         player.score = 0;
         while (!didLose) {
-            int winStreak = 0;
             System.out.println();
             int total = player.cup.total();
             int newTotal;
@@ -43,7 +42,6 @@ public class Player {
                 } else {
                     System.out.println("\nYou won");
                     player.score += 1;
-                    winStreak++;
                 }
             } else { //guessed lower
                 if (isLarger) {
@@ -52,13 +50,12 @@ public class Player {
                 } else {
                     System.out.println("\nyou won");
                     player.score += 1;
-                    winStreak++;
                 }
 
             }
             System.out.println("Your score is " + player.score);
-            if (winStreak > player.winStreak) {
-                player.winStreak = winStreak;
+            if (player.score > player.winStreak) {
+                player.winStreak = player.score;
             }
             System.out.println("Your win streak is " + player.winStreak);
         }
@@ -66,7 +63,8 @@ public class Player {
         String playAgain = scan.next();
         if (playAgain.equalsIgnoreCase("y")) {
             Player.playHighLow(player);
+        } else {
+            System.out.println("Good Bye");
         }
-        System.out.println("Good Bye");
     }
 }
