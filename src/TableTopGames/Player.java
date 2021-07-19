@@ -19,11 +19,14 @@ public class Player {
     }
 
     public static void playHighLow(Player player) {
+
         Scanner scan = new Scanner(System.in);
+
         System.out.println("The values go from " + player.cup.dice.length + " to " + (player.cup.dice.length * 6));
         boolean didLose = false;
         player.cup.rollAll();
         player.score = 0;
+
         while (!didLose) {
             System.out.println();
             int total = player.cup.total();
@@ -35,6 +38,7 @@ public class Player {
             newTotal = player.cup.total();
             System.out.println(newTotal);
             boolean isLarger = newTotal > total;
+
             if (inputHL.equals("h")) { //guessed higher
                 if (!isLarger) {
                     didLose = true;
@@ -53,18 +57,26 @@ public class Player {
                 }
 
             }
+
             System.out.println("Your score is " + player.score);
+
             if (player.score > player.winStreak) {
                 player.winStreak = player.score;
             }
+
             System.out.println("Your win streak is " + player.winStreak);
+
         }
+
         System.out.println("Want to play again? enter y/n");
         String playAgain = scan.next();
+
         if (playAgain.equalsIgnoreCase("y")) {
             Player.playHighLow(player);
         } else {
             System.out.println("Good Bye");
         }
+
     }
+
 }
