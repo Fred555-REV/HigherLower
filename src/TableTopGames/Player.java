@@ -44,7 +44,7 @@ public class Player {
                     player.score += 1;
                 }
             } else { //guessed lower
-                if (isLarger) {
+                if (isLarger || total == newTotal) {
                     didLose = true;
                     System.out.println("Sorry you lost");
                 } else {
