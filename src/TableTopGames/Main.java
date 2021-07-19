@@ -16,7 +16,7 @@ public class Main {
         int diceAmount = scan.nextInt();
         Cup cup = new Cup(diceAmount);
         Player player = new Player(name, cup);
-        player.getCup(3);
+        player.getCup(diceAmount);
         Cup.addDice(player.cup);
         Player.playHighLow(player);
     }
