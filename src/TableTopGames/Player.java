@@ -20,7 +20,7 @@ public class Player {
 
     public static void playHighLow(Player player) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("The values go from 3 to 18");
+        System.out.println("The values go from " + player.cup.dice.length + " to " + (player.cup.dice.length * 6));
         boolean didLose = false;
         player.cup.rollAll();
         player.score = 0;
