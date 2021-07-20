@@ -9,9 +9,9 @@ public class Cup {
         this.dice = new Die[diceAmount];
     }
 
-    public static void addDice(Cup cup) {
-        for (int i = 0; i < cup.dice.length; i++) {
-            cup.dice[i] = new Die();
+    public void addDice() {
+        for (int i = 0; i < dice.length; i++) {
+            dice[i] = new Die();
         }
     }
 

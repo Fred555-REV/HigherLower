@@ -17,7 +17,7 @@ public class Menu {
         Cup cup = new Cup(diceAmount);
         Player player = new Player(name, cup);
         player.getCup(diceAmount);
-        Cup.addDice(player.cup);
+        player.cup.addDice();
         Player.playHighLow(player);
     }
 }
