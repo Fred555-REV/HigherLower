@@ -31,11 +31,13 @@ public class Player {
             System.out.println();
             int total = player.cup.total();
             int newTotal;
+            Display.dice(player.cup);
             System.out.println(total);
             System.out.println("Higher or lower? enter: h/l");
             String inputHL = scan.next();
             player.cup.rollAll();
             newTotal = player.cup.total();
+            Display.dice(player.cup);
             System.out.println(newTotal);
             boolean isLarger = newTotal > total;
 

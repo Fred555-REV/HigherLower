@@ -23,4 +23,20 @@ public class Display {
         }
         return total;
     }
+
+    public static void dice(Cup cup) {
+        System.out.println();
+        for (int i = 0; i < cup.dice.length; i++) {
+            System.out.print("/¯¯¯\\");
+        }
+        System.out.println();
+        for (int i = 0; i < cup.dice.length; i++) {
+            System.out.print("|" + " " + cup.dice[i].value + " " + "|");
+        }
+        System.out.println();
+        for (int i = 0; i < cup.dice.length; i++) {
+            System.out.print("\\___/");
+        }
+        System.out.println();
+    }
 }
