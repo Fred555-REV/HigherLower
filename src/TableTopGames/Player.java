@@ -19,13 +19,24 @@ public class Player {
     }
 
     public static void playHighLow(Player player) {
-
         Scanner scan = new Scanner(System.in);
-        System.out.println("How many dice do you want to play Higher or Lower with?");
-        int diceAmount = scan.nextInt();
-        scan.nextLine();
-        player.getCup(diceAmount);
-        player.cup.addDice();
+        if (player.cup == null) {
+            System.out.println("How many dice do you want to play Higher or Lower with?");
+            int diceAmount = scan.nextInt();
+            scan.nextLine();
+            player.getCup(diceAmount);
+            player.cup.addDice();
+        } else {
+            System.out.println("Do you want to change dice amount? y/n");
+            String change = scan.next();
+            if (change.equalsIgnoreCase("y")) {
+                System.out.println("How many dice do you want to play Higher or Lower with?");
+                int diceAmount = scan.nextInt();
+                scan.nextLine();
+                player.getCup(diceAmount);
+                player.cup.addDice();
+            }
+        }
         System.out.println("The values go from " + player.cup.dice.length + " to " + (player.cup.dice.length * 6));
         boolean didLose = false;
         player.cup.rollAll();
