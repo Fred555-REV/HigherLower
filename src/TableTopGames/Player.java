@@ -8,7 +8,7 @@ public class Player {
     int score;
     int winStreak;
 
-    public Player(String name, Cup cup) {
+    public Player(String name) {
         this.name = name;
         this.score = 0;
         this.winStreak = 0;
@@ -21,7 +21,11 @@ public class Player {
     public static void playHighLow(Player player) {
 
         Scanner scan = new Scanner(System.in);
-
+        System.out.println("How many dice do you want to play Higher or Lower with?");
+        int diceAmount = scan.nextInt();
+        scan.nextLine();
+        player.getCup(diceAmount);
+        player.cup.addDice();
         System.out.println("The values go from " + player.cup.dice.length + " to " + (player.cup.dice.length * 6));
         boolean didLose = false;
         player.cup.rollAll();
